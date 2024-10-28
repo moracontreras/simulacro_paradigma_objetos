@@ -1,0 +1,93 @@
+@startuml
+
+abstract class SalaDeEscape{
+    nombre
+    dificultad
+    precio()
+    (abstract) adicional()
+    esDificil()
+}
+class SalaHistoria{
+    nombre
+    dificultad
+    basadaEnHechosReales
+    precio()
+    adicional()
+    esDificil()
+}
+class SalaTerror{
+    nombre
+    dificultad
+    cantidadSustos
+    cantidadSustosMayorA5()
+    precio()
+    adicional()
+    esDificil()
+}
+class SalaAnime{
+    nombre
+    dificultad
+    precio()
+    adicional()
+    esDificil()
+}
+
+class Escapista{
+    maestria
+    salasDeLasQueSalio
+    saldo
+    puedeSalirDe(unaSala)
+    cantidadDeSalas()
+    hizoMuchasSalas()
+    tieneNivel()
+    subirDeMaestria()
+    pagar(unMonto)
+    cambiarMaestria(unaMaestria)
+    nombresDeLasSalasDeLasQueSalio()
+    registrarSala(unaSala)
+    leAlcanzaPara(unMonto)
+    saldo()
+}
+
+interface Maestria{
+    permiteSalirDeUnaSalaAUnEscapista(unaSala,unEscapista)
+    siguienteNivel()
+}
+object amateur{
+    permiteSalirDeUnaSalaAUnEscapista(unaSala,unEscapista)
+    siguienteNivel()
+}
+object profesional{
+    permiteSalirDeUnaSalaAUnEscapista(unaSala,unEscapista)
+    siguienteNivel()
+}
+
+class Grupo{
+    integrantes
+    initialize()
+    tieneSuficientesIntegrantes()
+    cantidadDeIntegrantes()
+    puedeSalirDe(unaSala)
+    pagarSala(unaSala)
+    escaparDeUnaSala(unaSala)
+    costoPorPersona(unaSala)
+    puedePagarSala(unaSala)
+    entreTodosCubrenElMonto(unMonto)
+    todosPuedenPagar(unMonto)
+    integrantesQuePuedenPagar(unMonto)
+}
+
+SalaHistoria--|>SalaDeEscape
+SalaTerror--|>SalaDeEscape
+SalaAnime--|>SalaDeEscape
+Escapista-->Maestria
+Escapista..>SalaDeEscape
+Escapista..>Maestria
+Grupo-->"*"Escapista
+Grupo..>SalaDeEscape
+Maestria..>Escapista
+Maestria..>SalaDeEscape
+profesional..|>Maestria
+amateur..|>Maestria
+Escapista-->"*"SalaDeEscape
+@enduml
