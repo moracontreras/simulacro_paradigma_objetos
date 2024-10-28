@@ -1,0 +1,1 @@
+class NoPuedenPagarLaSalaException inherits Exception(message = "Los integrantes del grupo no tienen suficiente dinero para pagar la sala"){}

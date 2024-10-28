@@ -1,0 +1,1 @@
+class NoTieneSuficientesIntegrantesException inherits Exception(message = "No hay suficientes integrantes para formar un grupo"){}
