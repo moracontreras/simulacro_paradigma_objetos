@@ -113,7 +113,7 @@ class NoSePuedeRecategorizarAUnaEstrellaException inherits Exception(message = "
 object impdep{
     peliculas
     method artistaConMejorPaga(){
-        return peliculas.map({unaPelicula=> unaPelicula.elenco()}).max({unActor => unActor.sueldo()})
+        return peliculas.flatMap({unaPelicula=> unaPelicula.elenco()}).max({unActor => unActor.sueldo()})
     }
     method nombresDePeliculasEconomicas(){
         return peliculas.filter({unaPelicula => unaPelicula.esEconomica()})
@@ -122,6 +122,6 @@ object impdep{
         return self.nombresDePeliculasEconomicas().sum({unaPelicula=> unaPelicula.ganancias()})
     }
     method recategorizarArtistas(){
-        peliculas.map({unaPelicula=> unaPelicula.elenco()}).forEach({unActor => unActor.recategorizar()})
+        peliculas.flatMap({unaPelicula=> unaPelicula.elenco()}).forEach({unActor => unActor.recategorizar()})
     }
 }
