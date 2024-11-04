@@ -1,0 +1,116 @@
+@startuml
+abstract class Pelicula{
+    nombre
+    elenco
+    presupuesto()
+    costoRodaje(unValor)
+    ganancias()
+    recaudo()
+    (abstract) extraDelRecaudo()
+    rodar()
+    esEconomica()
+    elenco()
+}
+class PeliculaDrama{
+    nombre
+    elenco
+    letrasDeSuNombre()
+    presupuesto()
+    costoRodaje(unValor)
+    ganancias()
+    recaudo()
+    extraDelRecaudo()
+    rodar()
+    esEconomica()
+    elenco()
+}
+class PeliculaAccion{
+    nombre
+    elenco
+    vidriosRotos
+    presupuesto()
+    costoRodaje(unValor)
+    ganancias()
+    recaudo()
+    extraDelRecaudo()
+    rodar()
+    esEconomica()
+    elenco()
+}
+class PeliculaTerror{
+    nombre
+    elenco
+    cantidadDeCuchos
+    presupuesto()
+    costoRodaje(unValor)
+    ganancias()
+    recaudo()
+    extraDelRecaudo()
+    rodar()
+    esEconomica()
+    elenco()
+}
+class PeliculaComedia{
+    nombre
+    elenco
+    presupuesto()
+    costoRodaje(unValor)
+    ganancias()
+    recaudo()
+    extraDelRecaudo()
+    rodar()
+    esEconomica()
+    elenco()
+}
+
+class Actor{
+    ahorros
+    experiencia
+    cantidadDePeliculasEnLasQueActuo
+    actuar()
+    sueldo()
+    nivelDeFama()
+    aumentarPeliculasEnLasQueActuo()
+    cobrarSueldo()
+    recategorizar()
+}
+
+interface Experiencia{
+    sueldo(unNivelDeFama,cantidadDePeliculas)
+    categoriaALaQueDebeRecategorizar(unNivelDeFama,cantidadDePeliculas)
+}
+
+object amateur{
+    sueldo(unNivelDeFama,cantidadDePeliculas)
+    categoriaALaQueDebeRecategorizar(unNivelDeFama,cantidadDePeliculas)
+}
+object establecido{
+    sueldo(unNivelDeFama,cantidadDePeliculas)
+    categoriaALaQueDebeRecategorizar(unNivelDeFama,cantidadDePeliculas)
+}
+object estrella{
+    sueldo(unNivelDeFama,cantidadDePeliculas)
+    categoriaALaQueDebeRecategorizar(unNivelDeFama,cantidadDePeliculas)
+}
+
+object impdep{
+    peliculas
+    artistaConMejorPaga()
+    nombresDePeliculasEconomicas()
+    gananciasPeliuclasEconomicas()
+    recategorizarArtistas()
+}
+
+
+Pelicula -->"*" Actor
+PeliculaDrama --|> Pelicula
+PeliculaAccion --|> Pelicula
+PeliculaTerror --|> Pelicula
+PeliculaComedia --|> Pelicula
+amateur ..|>Experiencia
+establecido ..|>Experiencia
+estrella ..|>Experiencia
+impdep-->"*"Pelicula
+Actor --> Experiencia
+
+@enduml
