@@ -2,6 +2,7 @@ class Pelicula{
     const nombre
     const elenco = #{}
     method elenco() = elenco
+method nombre()= nombre
     method presupuesto(){
         const sueldos = elenco.sum({unActor=> unActor.sueldo()})
         return  sueldos + self.costoRodaje(sueldos)
@@ -115,11 +116,14 @@ object impdep{
     method artistaConMejorPaga(){
         return peliculas.flatMap({unaPelicula=> unaPelicula.elenco()}).max({unActor => unActor.sueldo()})
     }
-    method nombresDePeliculasEconomicas(){
+    method peliculasEconomicas(){
         return peliculas.filter({unaPelicula => unaPelicula.esEconomica()})
     }
+    method nombresDePeliculasEconomicas(){
+        return self.peliculasEconomicas().map({unaPelicula => unaPelicula.nombre()})
+    }
     method gananciasPeliuclasEconomicas(){
-        return self.nombresDePeliculasEconomicas().sum({unaPelicula=> unaPelicula.ganancias()})
+        return self.peliculasEconomicas().sum({unaPelicula=> unaPelicula.ganancias()})
     }
     method recategorizarArtistas(){
         peliculas.flatMap({unaPelicula=> unaPelicula.elenco()}).forEach({unActor => unActor.recategorizar()})
