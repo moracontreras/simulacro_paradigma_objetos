@@ -2,6 +2,7 @@
 abstract class Pelicula{
     nombre
     elenco
+    nombre()
     presupuesto()
     costoRodaje(unValor)
     ganancias()
@@ -14,6 +15,7 @@ abstract class Pelicula{
 class PeliculaDrama{
     nombre
     elenco
+    nombre()
     letrasDeSuNombre()
     presupuesto()
     costoRodaje(unValor)
@@ -27,6 +29,7 @@ class PeliculaDrama{
 class PeliculaAccion{
     nombre
     elenco
+    nombre()
     vidriosRotos
     presupuesto()
     costoRodaje(unValor)
@@ -40,6 +43,7 @@ class PeliculaAccion{
 class PeliculaTerror{
     nombre
     elenco
+    nombre()
     cantidadDeCuchos
     presupuesto()
     costoRodaje(unValor)
@@ -53,6 +57,7 @@ class PeliculaTerror{
 class PeliculaComedia{
     nombre
     elenco
+    nombre()
     presupuesto()
     costoRodaje(unValor)
     ganancias()
